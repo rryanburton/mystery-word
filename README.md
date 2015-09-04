@@ -23,12 +23,12 @@ Implement the game of Mystery Word.
 
 ##Learning Objectives
 
-#After completing this assignment, you should understand:
+###After completing this assignment, you should understand:
 
 All the basics of Python!
 Performance Objectives
 
-#After completing this assignment, you should be able to:
+###After completing this assignment, you should be able to:
 
 Create an interactive program.
 Read from a file.
