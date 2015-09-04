@@ -1,12 +1,16 @@
+#  /usr/share/dict/words
 
+with open(/usr/share/dict/words) as g:
+    words = g.read()
+
+    # """
+    # Returns a filtered version of the word list with words only containing
+    # 4-6 characters.
+    # """
 def easy_words(word_list):
-    """
-    Returns a filtered version of the word list with words only containing
-    4-6 characters.
-    """
-    # TODO
-    pass
-
+    for word in word_list:
+        if 4 >= len(word) >= 6:
+            easy_words_list.append(word)
 
 def medium_words(word_list):
     """
