@@ -1,9 +1,9 @@
 Mystery Word
-Description
+##Description
 
 Implement the game of Mystery Word.
 
-Tasks
+##Tasks
 
 * [ ] Blank slate
   * [ ] Create a GitHub repo called `mystery-word`
@@ -19,16 +19,16 @@ Tasks
 * [ ] Hard Mode (optional)
   * [ ] Implement the evil version of the game and put it in evil_mystery_word.py
   * [ ] Write tests and put them in evil_mystery_word_tests.py
-Objectives
+##Objectives
 
-Learning Objectives
+##Learning Objectives
 
-After completing this assignment, you should understand:
+#After completing this assignment, you should understand:
 
 All the basics of Python!
 Performance Objectives
 
-After completing this assignment, you should be able to:
+#After completing this assignment, you should be able to:
 
 Create an interactive program.
 Read from a file.
@@ -37,7 +37,7 @@ Keep track of state.
 Test your code.
 Details
 
-Deliverables
+##Deliverables
 
 A Git repo called mystery-word containing at least:
 a README.md file explaining how to run your project
@@ -76,11 +76,11 @@ Implement the evil version of this game. Put it in a new Python program called "
 
 You should write tests for new functionality you introduce.
 
-Notes
+##Notes
 
 When testing, keep in mind that testing user input and output is hard. Testing functions that have no side-effects -- that is, they take some arguments and return a value without getting information from input() or using random -- is much easier. Try to keep all your logic in pure functions and then have an outer crust of functions that talk to the user or read from files surrounding your delicious pure function middle. If you are able to do this, you will not need to test that outer crust.
 
-Additional Resources
+##Additional Resources
 
 nose.
 Working with Text Files
