@@ -19,18 +19,17 @@ def easy_words(word_list):
 def medium_words(word_list):
     medium_words_list = []
     for word in word_list:
-        if 4 <= len(word) <= 6:
+        if 6 <= len(word) <= 8:
             medium_words_list.append(word)
     return medium_words_list
 
 
 def hard_words(word_list):
-    """
-    Returns a filtered version of the word list with words only containing
-    8+ characters.
-    """
-    # TODO
-    pass
+    hard_words_list = []
+    for word in word_list:
+        if 8 <= len(word):
+            hard_words_list.append(word)
+    return hard_words_list
 
 
 def random_word(word_list):
