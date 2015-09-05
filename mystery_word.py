@@ -2,24 +2,26 @@
 
 with open('/usr/share/dict/words') as w:
     word_list = w.read()
-
+    word_list = word_list.split()
 
     # """
     # Returns a filtered version of the word list with words only containing
     # 4-6 characters.
-print("word_list exists")    # """
+    # """
+
 def easy_words(word_list):
+    easy_words_list = []
     for word in word_list:
-        if 4 >= len(word) >= 6:
+        if 4 <= len(word) <= 6:
             easy_words_list.append(word)
-print("easy_words_list exists")
+    return easy_words_list
+
 def medium_words(word_list):
-    """
-    Returns a filtered version of the word list with words only containing
-    6-8 characters.
-    """
-    # TODO
-    pass
+    medium_words_list = []
+    for word in word_list:
+        if 4 <= len(word) <= 6:
+            medium_words_list.append(word)
+    return medium_words_list
 
 
 def hard_words(word_list):
