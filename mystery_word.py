@@ -1,43 +1,38 @@
-# import list of words from /usr/share/dict/words
+import random
+
 
 with open('/usr/share/dict/words') as w:
     word_list = w.read()
     word_list = word_list.split()
-
-    # """
-    # Returns a filtered version of the word list with words only containing
-    # 4-6 characters.
-    # """
 
 def easy_words(word_list):
     easy_words_list = []
     for word in word_list:
         if 4 <= len(word) <= 6:
             easy_words_list.append(word)
-    return easy_words_list
+    word = random.choice(easy_words_list)
+    return word
 
 def medium_words(word_list):
     medium_words_list = []
     for word in word_list:
         if 6 <= len(word) <= 8:
             medium_words_list.append(word)
-    return medium_words_list
-
+    word = random.choice(medium_words_list)
+    return word
 
 def hard_words(word_list):
     hard_words_list = []
     for word in word_list:
         if 8 <= len(word):
             hard_words_list.append(word)
-    return hard_words_list
-
+    word = random.choice(hard_words_list)
+    return word
 
 def random_word(word_list):
-    """
-    Returns a random word from the word list.
-    """
-    # TODO
-    pass
+    word = random.choice(word_list)
+    return word
+
 
 
 def display_word(word, guesses):
