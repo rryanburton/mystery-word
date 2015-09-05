@@ -24,7 +24,7 @@ def medium_words(word_list):
 def hard_words(word_list):
     hard_words_list = []
     for word in word_list:
-        if 8 <= len(word):
+        if 8 < len(word):
             hard_words_list.append(word)
     word = random.choice(hard_words_list)
     return word
