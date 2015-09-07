@@ -77,7 +77,9 @@ def main():
 
     print("      ")
     print(" The Mystery Word Challenge ")
+    levelselect()
 
+def levelselect():
     level = 0
     if level not in ("1", "2", "3", "4"):
 
@@ -99,6 +101,23 @@ def main():
     if level == 3:
         word = hard_words(word_list)
     print("Your word is {} letters long.".format(len(word)))
+
+
+def gameplay():
+    pass
+
+
+def replaygame():
+    response = input("Do you want to play the game again?  'y' or 'n' ?")
+    if response == 'y':
+        levelselect()
+    if response == 'n':
+        print("Thanks for playing the game.")
+        exit()
+    else:
+        continue
+        
+
 
 if __name__ == '__main__':
     main()
