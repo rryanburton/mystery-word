@@ -24,7 +24,7 @@ def medium_words(word_list):
 def hard_words(word_list):
     hard_words_list = []
     for word in word_list:
-        if 8 < len(word):
+        if 8 <= len(word):
             hard_words_list.append(word)
     word = random.choice(hard_words_list)
     return word
@@ -75,6 +75,16 @@ def main():
     """
     # TODO
 
+    print("      ")
+    print(" The Mystery Word Challenge ")
+
+    level = input("""What level do you want to play at?
+    1 - Easy 4-6 letters
+    2 - Medium 6-8 letters
+    3 - Hard 8 + letters
+    4 - QUIT
+
+    Enter a number 1-4 to start   """)
 
 if __name__ == '__main__':
     main()
