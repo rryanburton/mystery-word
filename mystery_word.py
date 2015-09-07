@@ -46,14 +46,13 @@ def display_word(word, guesses):
     For example, if the word is BOMBARD and the letters guessed are a, b,
     and d, this function should return 'B _ _ B A _ D'.
     """
-    # take the word, split it apart into a list of its letters.
+
     # start with a variable with nothing in it. this will be new each time.
     # go through each letters in word
     # if letter is in guesses: .append the letter
     # if letter is not in guesses: add the letter as '_'
     # add letter/'_' of the word in sequence with a space
     # return the word and uppercase the letters
-
 
     word_onscreen = []
     for letter in word:
@@ -85,15 +84,15 @@ def main():
     """
     Runs when the program is called from the command-line.
 
-    1. Prompts the user for a difficulty level
-    2. Sets up the game based upon the difficulty level
+
+
     3. Performs the game loop, consisting of:
        a. Printing the word in progress, using _ for unguessed letters
        b. Printing the number of guesses remaining
        c. Printing the letters that have been guessed so far
        d. Prompting the user for a letter to guess
     4. Finishing the game and displaying whether the user has won or lost
-    5. Giving the user the option to play again
+
     """
     # TODO
 
@@ -103,6 +102,11 @@ def main():
 
 
 def levelselect():
+    """
+    1. Prompts the user for a difficulty level
+    2. Sets up the game based upon the difficulty level
+    """
+
     level = 0
     if level not in ("1", "2", "3", "4"):
 
@@ -123,14 +127,31 @@ def levelselect():
         word = medium_words(word_list)
     if level == 3:
         word = hard_words(word_list)
-    print("Your word is {} letters long.".format(len(word)))
+
+    print("\n Your word is {} letters long.".format(len(word)))
+    chances = 8
+    gameplay(chances, word)
 
 
-def gameplay():
+def gameplay(chances, word):
     pass
+    # check and display chances
+    if chances > 1:
+        print("\n You have {} chances remaining.".format(chances))
+    elif chances == 1:
+        print("\n You have {} chance remaining.".format(chances))
+    elif chances < 8:
+        print("\n You have already guessed: {} ".format('- '.join(guesses)))
+    else:
+        print("\n Sorry you didn't win this time")
+        print("\n The word was {}. ".format(word))
+        replaygame()
 
 
 def replaygame():
+    """
+    5. Giving the user the option to play again
+    """
     while True:
         response = input("Do you want to play the game again?  'y' or 'n' ?")
         if response == 'y':
