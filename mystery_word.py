@@ -78,13 +78,27 @@ def main():
     print("      ")
     print(" The Mystery Word Challenge ")
 
-    level = input("""What level do you want to play at?
-    1 - Easy 4-6 letters
-    2 - Medium 6-8 letters
-    3 - Hard 8 + letters
-    4 - QUIT
+    level = 0
+    if level not in ("1", "2", "3", "4"):
 
-    Enter a number 1-4 to start   """)
+        level = input("""What level do you want to play at?
+        1 - Easy 4-6 letters
+        2 - Medium 6-8 letters
+        3 - Hard 8 + letters
+        4 - QUIT
+
+        Enter a number 1-4 to start   """)
+
+    if level == 4:
+        print("Thanks for playing the game.")
+        exit()
+    if level == 1:
+        word = easy_words(word_list)
+    if level == 2:
+        word = medium_words(word_list)
+    if level == 3:
+        word = hard_words(word_list)
+    print("Your word is {} letters long.".format(len(word)))
 
 if __name__ == '__main__':
     main()
