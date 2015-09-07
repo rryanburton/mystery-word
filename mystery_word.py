@@ -49,9 +49,11 @@ def display_word(word, guesses):
     # take the word, split it apart into a list of its letters.
     # start with a variable with nothing in it. this will be new each time.
     # go through each letters in word
-    # if letter is in guesses: add the letter as .upper()
+    # if letter is in guesses: .append the letter
     # if letter is not in guesses: add the letter as '_'
-    # print each letter of the word in sequence with a space and without commas
+    # add letter/'_' of the word in sequence with a space
+    # return the word and uppercase the letters
+
 
     word_onscreen = []
     for letter in word:
@@ -69,8 +71,14 @@ def is_word_complete(word, guesses):
     Returns True if the list of guesses covers every letter in the word,
     otherwise returns False.
     """
-    # TODO
-    pass
+    # go through each letter of the word
+    # if the letter is not in guesses then False
+    # if you don't get any false, then you can consider True
+
+    for letter in word:
+        if letter not in guesses:
+            return False
+    return True
 
 
 def main():
