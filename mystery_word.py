@@ -46,8 +46,22 @@ def display_word(word, guesses):
     For example, if the word is BOMBARD and the letters guessed are a, b,
     and d, this function should return 'B _ _ B A _ D'.
     """
-    # TODO
-    pass
+    # take the word, split it apart into a list of its letters.
+    # start with a variable with nothing in it. this will be new each time.
+    # go through each letters in word
+    # if letter is in guesses: add the letter as .upper()
+    # if letter is not in guesses: add the letter as '_'
+    # print each letter of the word in sequence with a space and without commas
+
+    word_onscreen = []
+    for letter in word:
+        if letter in guesses:
+            word_onscreen.append(letter)
+        else:
+            word_onscreen.append('_')
+    word_onscreen = ' '.join(word_onscreen)
+    return word_onscreen.upper()
+
 
 
 def is_word_complete(word, guesses):
@@ -79,6 +93,7 @@ def main():
     print(" The Mystery Word Challenge ")
     levelselect()
 
+
 def levelselect():
     level = 0
     if level not in ("1", "2", "3", "4"):
@@ -108,15 +123,16 @@ def gameplay():
 
 
 def replaygame():
-    response = input("Do you want to play the game again?  'y' or 'n' ?")
-    if response == 'y':
-        levelselect()
-    if response == 'n':
-        print("Thanks for playing the game.")
-        exit()
-    else:
-        continue
-        
+    while True:
+        response = input("Do you want to play the game again?  'y' or 'n' ?")
+        if response == 'y':
+            levelselect()
+        elif response == 'n':
+            print("Thanks for playing the game.")
+            exit()
+        else:
+            continue
+
 
 
 if __name__ == '__main__':
