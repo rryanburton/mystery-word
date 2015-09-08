@@ -97,7 +97,7 @@ def main():
     # TODO
 
     print("      ")
-    print(" The Mystery Word Challenge ")
+    print("\n The Mystery Word Challenge \n\n\n ")
     levelselect()
 
 
@@ -110,16 +110,16 @@ def levelselect():
     level = 0
     if level not in ("1", "2", "3", "4"):
 
-        level = input("""What level do you want to play at?
+        level = input("""What level do you want to play? \n
         1 - Easy 4-6 letters
         2 - Medium 6-8 letters
         3 - Hard 8 + letters
         4 - QUIT
 
-        Enter a number 1-4 to start   """)
+        Enter a number 1-4 to start   \n""")
 
     if level == 4:
-        print("Thanks for playing the game.")
+        print("\nThanks for playing the game.\n")
         exit()
     if level == 1:
         word = easy_words(word_list)
@@ -134,12 +134,14 @@ def levelselect():
 
 
 def gameplay(chances, word):
-    pass
+    guesses = []
     # check and display chances
     if chances > 1:
         print("\n You have {} chances remaining.".format(chances))
     elif chances == 1:
         print("\n You have {} chance remaining.".format(chances))
+
+    #show previous guesses
     elif chances < 8:
         print("\n You have already guessed: {} ".format('- '.join(guesses)))
     else:
@@ -147,6 +149,9 @@ def gameplay(chances, word):
         print("\n The word was {}. ".format(word))
         replaygame()
 
+    # show word in progress
+
+    print(display_word(word, guesses))
 
 def replaygame():
     """
