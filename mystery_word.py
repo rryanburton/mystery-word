@@ -33,8 +33,6 @@ def random_word(word_list):
     word = random.choice(word_list)
     return word
 
-
-
 def display_word(word, guesses):
     """
     Returns a string that including blanks (_) and letters from the given word,
@@ -83,49 +81,32 @@ def is_word_complete(word, guesses):
 def main():
     """
     Runs when the program is called from the command-line.
-
-
-
     3. Performs the game loop, consisting of:
        a. Printing the word in progress, using _ for unguessed letters
        b. Printing the number of guesses remaining
        c. Printing the letters that have been guessed so far
        d. Prompting the user for a letter to guess
     4. Finishing the game and displaying whether the user has won or lost
-
     """
-    # TODO
+    print('\n\n\n\nThe Mystery Word Challenge')
+    print("""\n\nWhat level do you want to play?\n
+    1 - Easy 4-6 letters
+    2 - Medium 6-8 letters
+    3 - Hard 8 + letters
+    4 - QUIT\n""")
 
-    print("      ")
-    print("\n The Mystery Word Challenge \n\n\n ")
-    levelselect()
+    level = input("Enter a number 1-4 to start:\n")
 
 
-def levelselect():
-    """
-    1. Prompts the user for a difficulty level
-    2. Sets up the game based upon the difficulty level
-    """
-
-    level = 0
-    if level not in ("1", "2", "3", "4"):
-
-        level = input("""What level do you want to play? \n
-        1 - Easy 4-6 letters
-        2 - Medium 6-8 letters
-        3 - Hard 8 + letters
-        4 - QUIT
-
-        Enter a number 1-4 to start   \n""")
-
-    if level == 4:
+    # word = ''
+    if level is '4':
         print("\nThanks for playing the game.\n")
         exit()
-    if level == 1:
+    elif level is '1':
         word = random.choice(easy_words(word_list))
-    if level == 2:
+    elif level is '2':
         word = random.choice(medium_words(word_list))
-    if level == 3:
+    elif level is '3':
         word = random.choice(hard_words(word_list))
 
     print("\n Your word is {} letters long.".format(len(word)))
@@ -154,19 +135,21 @@ def gameplay(chances, word):
 
             # show word in progress
 
-            #print(display_word(word, guesses))
+            print(display_word(word, guesses))
 
             # get guess
-            guess = input("pick a letter")
-            # if len(guess) > 1:
-            #     print("Try picking just 1 letter")
-            #     #continue
-            # if guess in guesses:
-            #     print("I think you already played the letter {}. I won't count it against you. ".format(guess))
-            #     #continue
+            guess = input("pick a letter:  ")
+            if len(guess) > 1:
+                print("Try picking just 1 letter")
+                continue
+            if guess in guesses:
+                print("I think you already played the letter {}. I won't count it against you. ".format(guess))
+                continue
+            else:
+                guesses.append(guess)
 
 
-            guesses.append(guess)
+
             print(guesses)
 
             # check guess against letters in word
