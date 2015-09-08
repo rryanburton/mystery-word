@@ -134,24 +134,51 @@ def levelselect():
 
 
 def gameplay(chances, word):
-    guesses = []
-    # check and display chances
-    if chances > 1:
-        print("\n You have {} chances remaining.".format(chances))
-    elif chances == 1:
-        print("\n You have {} chance remaining.".format(chances))
+    while chances > 0:
+        guesses = []
+        while True:
 
-    #show previous guesses
-    elif chances < 8:
-        print("\n You have already guessed: {} ".format('- '.join(guesses)))
-    else:
-        print("\n Sorry you didn't win this time")
-        print("\n The word was {}. ".format(word))
-        replaygame()
+            # check and display chances
+            if chances > 1:
+                print("\n You have {} chances remaining.".format(chances))
+            elif chances == 1:
+                print("\n You have {} chance remaining.".format(chances))
 
-    # show word in progress
+            #show previous guesses
+            elif chances < 8:
+                print("\n You have already guessed: {} ".format('- '.join(guesses)))
+            else:
+                print("\n Sorry you didn't win this time")
+                print("\n The word was {}. ".format(word))
+                replaygame()
 
-    print(display_word(word, guesses))
+            # show word in progress
+
+            #print(display_word(word, guesses))
+
+            # get guess
+            guess = input("Guess a letter: ")
+            # if len(guess) > 1:
+            #     print("Try picking just 1 letter")
+            #     #continue
+            # if guess in guesses:
+            #     print("I think you already played the letter {}. I won't count it against you. ".format(guess))
+            #     #continue
+
+
+            guesses.append(guess)
+            print(guesses)
+
+            # check guess against letters in word
+            if guess in word:
+                print("That letter is in the word!")
+
+            else:
+                print("That letter is not in the word. You will have to try again.")
+                chances -= 1
+
+            print(display_word(word, guesses))
+
 
 def replaygame():
     """
