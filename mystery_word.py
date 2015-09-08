@@ -133,11 +133,6 @@ def gameplay(chances, word):
                 print("\n The word was {}. ".format(word))
                 replaygame()
 
-            # show word in progress
-
-            # print(display_word(word, guesses))
-
-            # get guess
             guess = input("pick a letter:  ")
             if len(guess) > 1:
                 print("Try picking just 1 letter")
@@ -148,18 +143,11 @@ def gameplay(chances, word):
             else:
                 guesses.append(guess)
 
-
-
-            # print(guesses)
-
-            # check guess against letters in word
             if guess in word:
                 print("That letter is in the word!")
                 if is_word_complete(word, guesses):
                     print("YOU WON!")
                     replaygame()
-
-
             else:
                 print("That letter is not in the word. You will have to try again.")
                 chances -= 1
