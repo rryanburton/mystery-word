@@ -109,7 +109,8 @@ def main():
     elif level is '3':
         word = random.choice(hard_words(word_list))
 
-    print("\n Your word is {} letters long.".format(len(word)))
+    print("\n Your word is {} letters long.\n".format(len(word)))
+
     chances = 8
     gameplay(chances, word)
 
@@ -118,16 +119,15 @@ def gameplay(chances, word):
     while chances > 0:
         guesses = []
         while True:
+            if chances > 0:
+                print("\n You have {} chances remaining.\n".format(chances))
+                print(display_word(word, guesses))
+            # if chances < 8:
+            #     print("\n Letters you have already guessed: {} ".format(' '.join(guesses)))
+            # elif chances > 0:
 
-            # check and display chances
-            if chances > 1:
-                print("\n You have {} chances remaining.".format(chances))
-            elif chances == 1:
-                print("\n You have {} chance remaining.".format(chances))
-
-            #show previous guesses
-            elif chances < 8:
-                print("\n You have already guessed: {} ".format('- '.join(guesses)))
+            # elif chances == 1:
+            #     print("\n You have {} chance remaining.".format(chances))
             else:
                 print("\n Sorry you didn't win this time")
                 print("\n The word was {}. ".format(word))
@@ -135,14 +135,14 @@ def gameplay(chances, word):
 
             # show word in progress
 
-            print(display_word(word, guesses))
+            # print(display_word(word, guesses))
 
             # get guess
             guess = input("pick a letter:  ")
             if len(guess) > 1:
                 print("Try picking just 1 letter")
                 continue
-            if guess in guesses:
+            elif guess in guesses:
                 print("I think you already played the letter {}. I won't count it against you. ".format(guess))
                 continue
             else:
@@ -150,16 +150,20 @@ def gameplay(chances, word):
 
 
 
-            print(guesses)
+            # print(guesses)
 
             # check guess against letters in word
             if guess in word:
                 print("That letter is in the word!")
+                if is_word_complete(word, guesses):
+                    print("YOU WON!")
+                    replaygame()
+
 
             else:
                 print("That letter is not in the word. You will have to try again.")
                 chances -= 1
-
+            print("\n Letters you have already guessed: {} ".format(' '.join(guesses)))
             print(display_word(word, guesses))
 
 
@@ -170,13 +174,10 @@ def replaygame():
     while True:
         response = input("Do you want to play the game again?  'y' or 'n' ?")
         if response == 'y':
-            levelselect()
-        elif response == 'n':
+            main()
+        else:
             print("Thanks for playing the game.")
             exit()
-        else:
-            continue
-
 
 
 if __name__ == '__main__':
