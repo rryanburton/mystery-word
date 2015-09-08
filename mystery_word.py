@@ -157,7 +157,7 @@ def gameplay(chances, word):
             #print(display_word(word, guesses))
 
             # get guess
-            guess = input("Guess a letter: ")
+            guess = input("pick a letter")
             # if len(guess) > 1:
             #     print("Try picking just 1 letter")
             #     #continue
