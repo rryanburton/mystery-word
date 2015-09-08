@@ -10,24 +10,24 @@ def easy_words(word_list):
     for word in word_list:
         if 4 <= len(word) <= 6:
             easy_words_list.append(word)
-    word = random.choice(easy_words_list)
-    return word
+    #word = random.choice(easy_words_list)
+    return easy_words_list
 
 def medium_words(word_list):
     medium_words_list = []
     for word in word_list:
         if 6 <= len(word) <= 8:
             medium_words_list.append(word)
-    word = random.choice(medium_words_list)
-    return word
+    # word = random.choice(medium_words_list)
+    return medium_words_list
 
 def hard_words(word_list):
     hard_words_list = []
     for word in word_list:
         if 8 <= len(word):
             hard_words_list.append(word)
-    word = random.choice(hard_words_list)
-    return word
+    # word = random.choice(hard_words_list)
+    return hard_words_list
 
 def random_word(word_list):
     word = random.choice(word_list)
@@ -122,11 +122,11 @@ def levelselect():
         print("\nThanks for playing the game.\n")
         exit()
     if level == 1:
-        word = easy_words(word_list)
+        word = random.choice(easy_words(word_list))
     if level == 2:
-        word = medium_words(word_list)
+        word = random.choice(medium_words(word_list))
     if level == 3:
-        word = hard_words(word_list)
+        word = random.choice(hard_words(word_list))
 
     print("\n Your word is {} letters long.".format(len(word)))
     chances = 8
